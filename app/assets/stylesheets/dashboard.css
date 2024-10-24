@@ -1,0 +1,49 @@
+.dashboard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.dashboard-childs{
+  height: 100%;
+  width: 100%;
+  margin-top: 25px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  display: flex;
+  gap: 20px;
+}
+
+.dashboard-child{
+  height: 100px;
+  text-decoration: none;
+  color: black;
+  width: 250px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: lightgray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard-child:hover{
+  height: 120px;
+  width: 270px;
+}
+.datsboard-chart{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80vh;
+}
+.dashboard-chart-container{
+  display: flex;
+  justify-content: center;
+  gap:20px;  
+}
+.dashboard-chart-message{
+  text-align: center;
+}  

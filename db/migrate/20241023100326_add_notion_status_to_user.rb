@@ -1,0 +1,5 @@
+class AddNotionStatusToUser < ActiveRecord::Migration[8.0]
+  def change
+    add_column :users, :is_notion_fetched, :boolean, default: false
+  end
+end

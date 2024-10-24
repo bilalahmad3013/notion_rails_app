@@ -1,0 +1,40 @@
+<div class="signUp__body">
+  <div class="signUp__form">
+    <%= form_with url: session_path, id: "signup-form", class: "form-horizontal mt-3" do |form| %>
+      <div class="signUp__form-section active">
+        <div class="signUp__flex">
+          <h2>Login Details</h2>
+
+          <div class="signUp__input-container">
+            <label for="emailID" class="signUp__input-label">
+              Email <span style="color: red;">*</span>
+            </label>
+            <%= form.email_field :email_address, id: "emailID", placeholder: "Enter e-mail", class: "signUp__input", value: params[:email_address] %>
+          </div>
+
+          <div class="signUp__input-container mt-3">
+            <label for="passwordID" class="signUp__input-label">
+              Password <span style="color: red;">*</span>
+            </label>
+            <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72, id: "passwordID", class: "signUp__input" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-center mt-4">
+        <div class="col-sm-4 text-center">
+          <%= form.submit "Log In", class: "signUp__button" %>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="mt-3 text-center text-muted">
+      <p class="mb-0">
+        <%= link_to 'Sign up', new_user_path %>
+      </p>
+    </div>
+  </div>
+</div>
+
+<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
+<%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>

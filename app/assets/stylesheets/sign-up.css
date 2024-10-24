@@ -1,0 +1,209 @@
+.signUp__body{
+    margin: 0;
+    background-color:white;
+    height:100%;
+    width: 100%;
+    min-height:100vh;
+    padding: 16px 32px;
+    box-sizing: border-box;
+  }
+  .signUp__logo {
+    display: flex;
+  }
+  
+  .signUp__logo img {
+    width: auto;
+    height: 40px;
+  }
+  
+  .signUp__form {
+    margin: 40px auto;
+    max-width: 440px;
+  }
+  
+  .signUp__form h2 {
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .signUp__form label {
+    font-family: "Rubik", sans-serif;
+    font-size: 14px;
+    color: #6b727a;
+  }
+  
+  .signUp__flex {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+  }
+  
+  .signUp__input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+  }
+  
+  .signUp__input {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    gap: 10px;
+  
+    width: auto;
+    height: auto;
+  
+    background: #f4f4f4;
+    border-radius: 10px;
+    border: none;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+  }
+  
+  .signUp__input::placeholder {
+    color: #868d94;
+  }
+  
+  input:focus {
+    outline: none;
+  }
+  
+  .signUp__select {
+    font-family: "Rubik", sans-serif;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    gap: 10px;
+  
+    width: auto;
+    height: auto;
+  
+    background: #f4f4f4;
+    border-radius: 10px;
+    border: none;
+  
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+    /* appearance: none; */
+  }
+  
+  .signUp__select:focus {
+    outline: none;
+  }
+  
+  .signUp__progress-bar {
+    width: 100%;
+    background-color: #f3f3f3;
+    border-radius: 25px;
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  
+  .signUp__progress {
+    height: 8px;
+    width: 0%;
+    background-color: #1f2020;
+    text-align: center;
+    line-height: 25px;
+    color: white;
+    transition: width 0.4s;
+    border-radius: 10px;
+  }
+  .signUp__form-navigation {
+    margin: 40px auto;
+    max-width: 440px;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    /* margin-top: 20px; */
+    /* text-align: center; */
+  }
+  #next-btn{
+    position:absolute;
+    right:0;
+  }
+  
+  .signUp__button {
+    background-color: #1f2020;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    width: 128px;
+    height: 40px;
+    border-radius: 10px;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+  }
+  
+  .signUp__button:hover {
+    background-color: #333;
+    color: white;
+  }
+  
+  .signUp__button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  /* Add these styles for eye icons */
+  .signUp__eye-icon {
+    width: 20px;
+    height: 20px;
+    margin-left: -30px; /* Adjust the left margin as needed */
+    cursor: pointer;
+  }
+  
+  .signUp__eye-close {
+    display: none;
+  }
+  
+  .signUp__show-password-label {
+    position: relative;
+  }
+  
+  /* Ensure eye icons are positioned correctly */
+  .signUp__password-input {
+    position: relative; /* Ensure the parent container is positioned relative */
+    display: flex;
+    align-items: center;
+  }
+  
+  .signUp__password-input input[type="password"] {
+    padding-right: 50px; /* Add space for the eye icons */
+  }
+  
+  /* Hide default checkbox */
+  .signUp__password-input input[type="checkbox"] {
+    display: none;
+  }
+  
+  input[type="checkbox"] {
+    accent-color: black;
+    width: 1em;
+    height: 1em;
+    border-radius: 4px;
+  }
+  
+  .signUp__terms, .signUp__link {
+    color: black;
+    text-decoration: underline;
+  }
+  .error-message-text{
+    font-size:12px;
+  }
+  .signUp__hidden{
+    display: none;
+  }
+  .edit-main-div{
+    width: 95%;
+  }
+  
