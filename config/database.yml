@@ -9,16 +9,16 @@ default: &default
 
 development:
   <<: *default
-  # url: <%= ENV['DATABASE_URL'] %>
   database: notion_app_development
-  # host: localhost
 
 test:
   <<: *default
   database: notion_app_test
-  host: localhost
 
 production:
   <<: *default
-  # database: upsellPro_production
   url: <%= ENV['DATABASE_URL'] %>
+  
+queue:
+  <<: *default
+  database: queue
