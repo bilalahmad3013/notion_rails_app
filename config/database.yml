@@ -22,3 +22,7 @@ production:
 queue:
   <<: *default
   database: queue
+
+cache:
+  <<: *default
+  database: cache
