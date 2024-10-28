@@ -1,0 +1,22 @@
+<%= render 'home/navbar' %>
+<div class="insert-notion-container">
+  <%= form_with url: create_in_notion_notion_database_index_path, method: :post do |f| %>
+    <div class="container">
+      <h2 class="insert-heading">Insert into Notion</h2>
+      <%= f.hidden_field :database_id, value: @database_id %>      
+
+      <% @properties.each do |property, data_type| %>        
+        <div class="mb-3">
+          <label for="<%= property %>" class="form-label"><%= property %></label>
+          <%= f.text_field property, class: 'form-control', id: property.parameterize, data: { type: data_type } %>
+        </div>
+      <% end %>
+      
+      <div class="d-grid">
+        <%= f.submit 'Submit', class: 'bg-dark btn-two btn btn-primary'%>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
+<%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>

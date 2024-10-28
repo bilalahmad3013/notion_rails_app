@@ -1,39 +1,49 @@
 <%= render 'home/navbar' %>
-<div class="col py-3">
+<div class="col py-3 charts-cont">
   <div data-controller="chart">
     <div class="dashboard-chart-container">    
-      <select class="form-select mb-3" style="width: 250px;" data-chart-target="xAxisSelect" data-action="change->chart#updateChart">
-        <option value="" disabled selected>Select X-Axis</option>
-        <% @columns.each do |column| %>
-          <option value="<%= column %>"><%= column %></option>
-        <% end %>
-      </select>      
-     
-      <select class="form-select mb-3" style="width: 250px;" data-chart-target="yAxisSelect" data-action="change->chart#updateChart">
-        <option value="" disabled selected>Select Y-Axis</option>
-        <% @columns.each do |column| %>
-          <option value="<%= column %>"><%= column %></option>
-        <% end %>
-      </select>      
-     
-      <select class="form-select mb-3" style="width: 250px;" data-chart-target="chartTypeSelect" data-action="change->chart#updateChart">
-        <option value="" disabled selected>Select Chart Type</option>
-        <option value="line">Line Chart</option>
-        <option value="bar">Bar Chart</option>        
-        <option value="pie">Pie Chart</option>
-        <option value="doughnut">Doughnut Chart</option>
-        <option value="polarArea">Polar Area Chart</option>
-        <option value="radar">Radar Chart</option>
-        <option value="bubble">Bubble Chart</option>
-        <option value="scatter">Scatter Chart</option>
-      </select>     
+      <div class="mb-3">
+        <label for="xAxisSelect" class="form-label">Select X-Axis</label>
+        <select id="xAxisSelect" class="form-select" style="width: 250px;" data-chart-target="xAxisSelect" data-action="change->chart#updateChart">
+          <option value="" disabled selected>Select X-Axis</option>
+          <% @columns.each do |column| %>
+            <option value="<%= column %>"><%= column %></option>
+          <% end %>
+        </select>
+      </div>
+      
+      <div class="mb-3">
+        <label for="yAxisSelect" class="form-label">Select Y-Axis</label>
+        <select id="yAxisSelect" class="form-select" style="width: 250px;" data-chart-target="yAxisSelect" data-action="change->chart#updateChart">
+          <option value="" disabled selected>Select Y-Axis</option>
+          <% @columns.each do |column| %>
+            <option value="<%= column %>"><%= column %></option>
+          <% end %>
+        </select>
+      </div>
+
+      <div class="mb-3">
+        <label for="chartTypeSelect" class="form-label">Select Chart Type</label>
+        <select id="chartTypeSelect" class="form-select" style="width: 250px;" data-chart-target="chartTypeSelect" data-action="change->chart#updateChart">
+          <option value="" disabled selected>Select Chart Type</option>
+          <option value="line">Line Chart</option>
+          <option value="bar">Bar Chart</option>        
+          <option value="pie">Pie Chart</option>
+          <option value="doughnut">Doughnut Chart</option>
+          <option value="polarArea">Polar Area Chart</option>
+          <option value="radar">Radar Chart</option>
+          <option value="bubble">Bubble Chart</option>
+          <option value="scatter">Scatter Chart</option>
+        </select>
+      </div>
     </div>
     <div class="dashboard-chart-message" data-chart-target="message">
       Please select X-Axis, Y-Axis, and Chart Type to display the chart.
     </div>
-    <div class="datsboard-chart" data-chart-target="chartContainer">
+    <div class="dashboard-chart" data-chart-target="chartContainer">
       <canvas data-chart-target="chartCanvas"></canvas>
     </div>
-    <input data-chart-target="dataDisplay" type="hidden" value="<%= @data.present? ? @data.to_json : '[]' %>" />    
+    <input data-chart-target="dataDisplay" type="hidden" value="<%= @data.present? ? @data.to_json : '[]' %>" />
+    <input data-chart-target="dataDisplayDb" type="hidden" value="<%= @data_from_db.present? ? @data_from_db.to_json : '[]' %>" />        
   </div>
 </div>

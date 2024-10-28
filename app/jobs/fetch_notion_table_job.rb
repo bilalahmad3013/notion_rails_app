@@ -36,7 +36,7 @@ class FetchNotionTableJob < ApplicationJob
       {
         database_id: db["id"],
         title: db["title"].first["text"]["content"],
-        properties: db["properties"].map { |name, _| name }.join(", ")
+        properties: db["properties"].transform_values { |prop| prop["type"] }
       }
     end
   end

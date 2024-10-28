@@ -3,14 +3,18 @@
     <button onclick="window.location.href = '<%= ENV['NOTION_OAUTH_URL'] %>'" class="btn btn-primary">Connect with Notion</button>
     <h3>Connect your Notion workspace</h3>
     <div>Connect your Notion workspace with your our web app account to start building new charts. You decide which Notion pages we can access – we handle the rest.</div>
-  <% else %>
-    <h3>Select tables from list to represent in charts.</h3>
+  <% else %>    
+    <h1>TABLES</h1>
     <div class="dashboard-childs">
       <% @current_user.notion_tables.each do |database| %>
-        <a href='/notion_database/index?database_id=<%= database.database_id%>' class="dashboard-child">
-          <%= database.title %>
-        </a>
-      <% end %>
+        <div class="dashboard-child">
+          <h4><%= database.title %></h4>
+          <div class="dashboard-actionns">
+           <button class="special-btn btn btn-primary" onclick="window.location.href='/notion_database/index?database_id=<%= database.database_id%>'">Charts</button>
+           <button class="special-btn btn btn-primary" onclick="window.location.href='/notion_database/insert?database_id=<%= database.database_id%>'">Insert data</button>
+          </div>
+        </div>
+      <% end %>      
     </div>     
   <% end %>
 </div>

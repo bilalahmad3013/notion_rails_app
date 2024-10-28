@@ -16,23 +16,24 @@
 }
 
 .dashboard-child{
-  height: 100px;
+  height: 150px;
   text-decoration: none;
   color: black;
-  width: 250px;
+  width: 300px;
   border-radius: 10px;
   cursor: pointer;
   background-color: lightgray;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .dashboard-child:hover{
-  height: 120px;
-  width: 270px;
+  height: 180px;
+  width: 330px;
 }
-.datsboard-chart{
+.dashboard-chart{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,3 +48,56 @@
 .dashboard-chart-message{
   text-align: center;
 }  
+
+.insert-notion-container{
+  display: flex;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  justify-content: center;
+  align-items: center;  
+  width: 100%;
+}
+.insert-heading{
+  margin: 20px 0px;
+}
+.charts-cont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.nav-header{
+  border-bottom: 2px solid;
+  width: 100%;
+  margin: 10px 0px;
+}
+.nav-footer{
+  border-top: 2px solid;
+  width: 100%;
+  padding-top: 20px;
+}
+.nav-links{
+  width: 100%;
+  margin-top: 10px;
+}
+.nav-item{
+  width: 100%;
+}
+.nav-link-a{
+  width: 100%;
+  padding: 5px !important;  
+  color: white !important;
+  margin-bottom: 10px;
+  border: 1px solid white !important;
+}
+.nav-link-active{
+  color: black !important;
+  background-color: white !important;
+}
+.special-btn{
+  border: none !important;
+  color: black !important;
+  background-color: white !important;
+} 
+.btn-two{
+  border: none !important;
+}

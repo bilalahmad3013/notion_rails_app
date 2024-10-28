@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-  static targets = ["chartCanvas", "xAxisSelect", "yAxisSelect", "chartTypeSelect", "dataDisplay", "message", "chartContainer"]
+  static targets = ["chartCanvas", "xAxisSelect", "yAxisSelect", "chartTypeSelect", "dataDisplay", "dataDisplayDb", "message", "chartContainer"]
 
   connect() {
     this.chart = null;
@@ -12,11 +12,18 @@ export default class extends Controller {
     const xAxis = this.xAxisSelectTarget.value;
     const yAxis = this.yAxisSelectTarget.value;
     const chartType = this.chartTypeSelectTarget.value;
+    const dataTypes = JSON.parse(this.dataDisplayDbTarget.value);    
 
     if (!xAxis || !yAxis || !chartType) {
       this.messageTarget.style.display = "block";
       this.chartCanvasTarget.style.display = "none";
       this.chartContainerTarget.style.display = "none";
+      return;
+    }
+
+    const yAxisType = dataTypes[yAxis];
+    if (yAxisType !== 'number') {
+      alert("Y-axis should be a number or related fields, not text.");
       return;
     }
 

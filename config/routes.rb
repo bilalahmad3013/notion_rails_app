@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   resources :passwords, param: :token
   root "home#index"
 
-  resources :notion_database, only: [:index]
+  resources :notion_database, only: [:index] do
+    get  :insert, on: :collection
+    post :create_in_notion, on: :collection
+  end  
   resources :user, only: [:new, :create]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
