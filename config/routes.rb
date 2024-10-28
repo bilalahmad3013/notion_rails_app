@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     get  :insert, on: :collection
     post :create_in_notion, on: :collection
   end  
-  resources :user, only: [:new, :create]
+  resources :user, only: [:new, :create, :destroy]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

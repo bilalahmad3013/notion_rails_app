@@ -18,6 +18,7 @@ module Authentication
     end
     
     def current_user
+      return nil if Current.session.nil? || Current.session.user_id.nil?
       User.find_by(id: Current.session.user_id)
     end  
 
