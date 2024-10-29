@@ -26,8 +26,7 @@ class FetchNotionTableJob < ApplicationJob
         Authorization: "Bearer #{access_token}",
         'Notion-Version' => '2022-06-28'
       }
-    )
-
+    )    
     response.parse
   end
 

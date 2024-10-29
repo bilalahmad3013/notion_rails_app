@@ -51,7 +51,10 @@
 
 .insert-notion-container{
   display: flex;
+  flex-direction: column;
   overflow-y: scroll;
+  max-height: 100vh;
+  margin-bottom: 20px;
   scrollbar-width: none;
   justify-content: center;
   align-items: center;  
@@ -100,4 +103,13 @@
 } 
 .btn-two{
   border: none !important;
+}
+.table-responsive{
+  scrollbar-width: thin;
+  max-height: 70vh;
+  min-width: 90%;
+}
+.spinner-border{
+  height: 20px !important;
+  width: 20px !important;
 }

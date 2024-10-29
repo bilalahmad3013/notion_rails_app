@@ -11,3 +11,17 @@
 body{
     display: flex;    
 }
+.flash-danger, .flash-success{
+  position: absolute;  
+  top: 10px;
+  right: 10px;  
+  padding: 10px;
+  color: white !important;
+  border-radius: 10px;
+}
+.flash-danger{ 
+  background-color: red;
+}
+.flash-success{
+  background-color: green;
+}
