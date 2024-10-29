@@ -4,29 +4,22 @@ class NotionDatabaseController < ApplicationController
   before_action :set_current_user
   before_action :set_selected_table, only: [:index, :insert, :create_in_notion]
   before_action :set_properties, only: [:insert, :create_in_notion]
+  before_action :set_data, only: [:index, :insert]
 
   def index
-    if @selected_table
-      notion_access_token = @selected_table.user.notion_access_token
-      @data = NotionService.get_data(@selected_table.database_id, notion_access_token)
-      @data_from_db = @selected_table.properties
-
-      if @data.present?
-        @columns = extract_unique_columns(@data)
-      else
-        @columns = []
-        flash[:alert] = "No data found for the selected database."
-      end
+    if @data.present?
+      @columns = extract_unique_columns(@data)
     else
-      handle_no_matching_table
+      @columns = []
+      flash[:alert] = "No data found for the selected database."
     end
   end
 
   def insert
-    @database_id = params[:database_id]   
+    @database_id = params[:database_id]    
   end
   
-  def create_in_notion
+  def create_in_notion    
     notion_access_token = @selected_table.user.notion_access_token
     properties_data = build_properties_data
   
@@ -36,7 +29,7 @@ class NotionDatabaseController < ApplicationController
     else
       flash[:alert] = "Error in creating entry"
     end
-    redirect_to request.referer     
+    render json: { message: flash[:notice] || flash[:alert], response: @response }
   end  
 
   private
@@ -51,6 +44,15 @@ class NotionDatabaseController < ApplicationController
 
   def set_properties
     @properties = @selected_table&.properties || []
+  end
+
+  def set_data
+    if @selected_table
+      notion_access_token = @selected_table.user.notion_access_token
+      @data = NotionService.get_data(@selected_table.database_id, notion_access_token)
+    else
+      handle_no_matching_table
+    end
   end
 
   def extract_unique_columns(data)
