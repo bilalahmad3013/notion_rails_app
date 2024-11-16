@@ -21,11 +21,7 @@ export default class extends Controller {
       return;
     }
 
-    const yAxisType = dataTypes[yAxis];
-    if (yAxisType !== 'number') {
-      alert("Y-axis should be a number or related fields, not text.");
-      return;
-    }
+    const yAxisType = dataTypes[yAxis];    
 
     this.messageTarget.style.display = "none";
     this.chartCanvasTarget.style.display = "block";
